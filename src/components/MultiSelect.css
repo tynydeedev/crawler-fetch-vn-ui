@@ -1,0 +1,100 @@
+.multi-select {
+  position: relative;
+}
+
+.select-input {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  position: relative;
+  height: 42px;
+}
+
+.select-input-multiple {
+  height: auto;
+  min-height: 42px;
+  flex-wrap: wrap;
+}
+
+.select-click {
+  flex: 1;
+  height: 42px;
+}
+
+.select-input::before {
+  position: absolute;
+  content: '';
+  right: 8px;
+  top: 18px;
+  border-top: 5px solid #252525;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.select-icon {
+  font-size: 20px;
+  margin-right: 5px;
+  color: #84ce3f;
+  flex-basis: 30px;
+}
+
+.select-title {
+  color: #ccc;
+}
+
+.select-title.placeholder {
+  color: #ccc;
+}
+
+.select-list {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  overflow-y: scroll;
+  height: 485px;
+  z-index: 1000;
+  background-color: #242424;
+}
+
+.select-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+}
+
+.select-item:hover {
+  background: #eee;
+}
+
+.select-item:hover .select-title {
+  color: #242424;
+}
+
+.selected-list {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 42px;
+  width: 100%;
+}
+
+.selected-item {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin: 5px;
+}
+
+.selected-item span {
+  margin-right: 5px;
+}

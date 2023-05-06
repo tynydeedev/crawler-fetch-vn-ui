@@ -1,0 +1,66 @@
+#root {
+  margin: 0;
+  padding: 0;
+  min-width: 1280px;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  height: 95vh;
+}
+
+#graph {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  width: 70%;
+  border: 2px solid #fff;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+#cy {
+  background-color: #868585;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#log {
+  position: relative;
+  display: flex;
+  padding: 0;
+  width: 30%;
+  box-sizing: border-box;
+  margin: 5px;
+  border: 2px solid #fff;
+}
+
+#log-area {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  max-height: 100vh;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0 5px;
+}
+
+#log-area li {
+  padding-bottom: 20px;
+}
+
+#log-area li p {
+  margin: 0 0 2px 0;
+  line-height: 1.1;
+}
+
+#log-area li:hover {
+  background-color: #eee;
+  color: #000;
+}
