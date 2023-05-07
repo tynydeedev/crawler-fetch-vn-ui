@@ -10,6 +10,7 @@
   padding: 0 10px;
   position: relative;
   height: 42px;
+  box-sizing: border-box;
 }
 
 .select-input-multiple {
@@ -25,7 +26,7 @@
 
 .select-input::before {
   position: absolute;
-  content: '';
+  content: "";
   right: 8px;
   top: 18px;
   border-top: 5px solid #252525;
@@ -50,7 +51,7 @@
 
 .select-list {
   position: absolute;
-  top: 42px;
+  top: 48px;
   left: 0;
   right: 0;
   bottom: 0;

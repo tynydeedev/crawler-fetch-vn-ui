@@ -1,0 +1,9 @@
+#graph {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  width: 70%;
+  border: 2px solid #fff;
+  margin: 5px;
+  box-sizing: border-box;
+}

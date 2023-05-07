@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import cytoscape from "cytoscape";
 import React, { useEffect, useRef, useState } from "react";
+import "./CyComponent.css";
 
 interface Props {
   graph: Record<string, any>;
@@ -91,7 +92,8 @@ function CyComponent({ graph, symbols }: Props) {
       action: "bid" | "ask",
       value: number
     ) {
-      const label = action === "bid" ? `Best Bid: ${value}` : `Best Ask: ${value}`
+      let label =
+        action === "bid" ? `Best Bid: ${value}` : `Best Ask: ${value}`;
       if (!cy.current.$id(`${source}-${target}`).length) {
         cy.current.add({
           group: "edges",
@@ -99,11 +101,27 @@ function CyComponent({ graph, symbols }: Props) {
             id: `${source}-${target}`,
             source: source,
             target: target,
-            label
+            label,
           },
         });
       } else {
-        cy.current.$id(`${source}-${target}`).data('label', label);
+        const oldData = parseFloat(
+          cy.current
+            .$id(`${source}-${target}`)
+            .data("label")
+            .split(":")[1]
+            .trim()
+        );
+
+        if (oldData > value) {
+          label += " ↓";
+        } else if (oldData < value) {
+          label += " ↑";
+        } else {
+          label += " ∽";
+        }
+
+        cy.current.$id(`${source}-${target}`).data("label", label);
       }
     }
 
@@ -125,7 +143,7 @@ function CyComponent({ graph, symbols }: Props) {
       spacingFactor: 1.75,
       circle: true,
       animate: true,
-      fit: true
+      fit: true,
     };
 
     function updateLayout() {

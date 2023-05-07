@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import CyComponent from "./CyComponent";
 import MultiSelect from "./MultiSelect";
+import "./Graph.css";
 
 function Graph() {
   const [selectedList, setSelectedList] = useState<Array<string>>([]);
@@ -13,7 +14,8 @@ function Graph() {
     if (!listening) {
       setListening(true);
 
-      const events = new EventSource("http://localhost:3000/graph");
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+      const events = new EventSource(`${apiUrl}/graph`);
 
       events.onmessage = (event) => {
         const parsedData = JSON.parse(event.data.trim());

@@ -1,0 +1,34 @@
+#log {
+  position: relative;
+  display: flex;
+  padding: 0;
+  width: 30%;
+  box-sizing: border-box;
+  margin: 5px;
+  border: 2px solid #fff;
+}
+
+#log-area {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0 5px;
+}
+
+#log-area li {
+  padding-bottom: 20px;
+}
+
+#log-area li p {
+  margin: 0 0 2px 0;
+  line-height: 1.1;
+}
+
+#log-area li:hover {
+  background-color: #eee;
+  color: #000;
+}

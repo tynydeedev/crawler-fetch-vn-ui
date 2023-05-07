@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Log.css";
 
 function Log() {
   const [logs, setLogs] = useState<Array<Array<string>>>([]);
@@ -8,7 +9,8 @@ function Log() {
     if (!listening) {
       setListening(true);
 
-      const events = new EventSource("http://localhost:3000/log");
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+      const events = new EventSource(`${apiUrl}/log`);
 
       events.onmessage = (event) => {
         setLogs((logs) => {
